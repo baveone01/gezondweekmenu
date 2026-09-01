@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RecipeCard from '../../components/RecipeCard.astro';
+import { recipesByTag } from '../../data/recipes';
+import { DIET_LABEL, DIET_DESC } from '../../data/types';
+
+export function getStaticPaths() {
+  const allTags = ['gezond', 'vegetarisch', 'vegan', 'koolhydraatarm', 'glutenvrij', 'snel', 'kindervriendelijk'] as const;
+  return allTags.map((t) => ({
+    params: { tag: t },
+    props: { tag: t },
+  }));
+}
+
+const { tag } = Astro.props;
+const items = recipesByTag(tag);
+const title = `${DIET_LABEL[tag]} recepten & gerechten`;
+const canonical = `/dieet/${tag}/`;
+---
+
+<Layout title={title} description={DIET_DESC[tag]} canonical={canonical}>
+  <nav class="mb-4 text-sm text-gray-500">
+    <a href="/" class="hover:text-brand-600">Home</a> / <a href="/recepten/" class="hover:text-brand-600">Recepten</a> / {DIET_LABEL[tag]}
+  </nav>
+  <header class="mb-6 max-w-2xl">
+    <h1 class="font-serif text-3xl font-extrabold text-gray-900">{DIET_LABEL[tag]} recepten</h1>
+    <p class="mt-2 text-gray-600">{DIET_DESC[tag]}</p>
+  </header>
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {items.map((r) => <RecipeCard recipe={r} />)}
+  </div>
+</Layout>

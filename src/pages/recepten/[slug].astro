@@ -1,0 +1,177 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RecipeCard from '../../components/RecipeCard.astro';
+import RecipeServingScaler from '../../components/RecipeServingScaler';
+import { recipes, recipeBySlug } from '../../data/recipes';
+import { foodImage, totalMin, CATEGORY_LABEL, DIET_LABEL, CATEGORY_SLUG } from '../../data/types';
+
+export function getStaticPaths() {
+  return recipes.map((r) => ({ params: { slug: r.slug }, props: { recipe: r } }));
+}
+
+const { recipe } = Astro.props;
+const related = recipes.filter((r) => r.category === recipe.category && r.slug !== recipe.slug).slice(0, 3);
+const title = `${recipe.title} – Gezond recept`;
+const canonical = `/recepten/${recipe.slug}/`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Recipe',
+  name: recipe.title,
+  description: recipe.intro,
+  image: [foodImage(recipe.imagePrompt, 'landscape_4_3')],
+  recipeCategory: CATEGORY_LABEL[recipe.category],
+  keywords: ['gezond recept', CATEGORY_LABEL[recipe.category], ...recipe.tags.map((t) => DIET_LABEL[t])].join(', '),
+  recipeYield: `${recipe.servings} porties`,
+  recipeCuisine: 'Hollands',
+  prepTime: `PT${recipe.prepMin}M`,
+  cookTime: `PT${recipe.cookMin}M`,
+  totalTime: `PT${totalMin(recipe)}M`,
+  author: { '@type': 'Organization', name: 'Gezondweekmenu.nl' },
+  nutrition: {
+    '@type': 'NutritionInformation',
+    calories: `${recipe.nutrition.kcal} calorieën`,
+    proteinContent: `${recipe.nutrition.protein} g`,
+    carbohydrateContent: `${recipe.nutrition.carbs} g`,
+    fatContent: `${recipe.nutrition.fat} g`,
+    fiberContent: `${recipe.nutrition.fiber} g`,
+  },
+  recipeIngredient: recipe.ingredients.map((i) => (i.qty ? `${i.qty} ${i.name}` : i.name)),
+  recipeInstructions: recipe.steps.map((s, idx) => ({
+    '@type': 'HowToStep',
+    position: idx + 1,
+    text: s,
+  })),
+};
+---
+
+<Layout title={title} description={recipe.intro} canonical={canonical}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <nav class="mb-4 text-sm text-gray-500">
+    <a href="/" class="hover:text-brand-600">Home</a> /
+    <a href="/recepten/" class="hover:text-brand-600">Recepten</a> /
+    <a href={`/categorieen/${CATEGORY_SLUG[recipe.category]}/`} class="hover:text-brand-600">{CATEGORY_LABEL[recipe.category]}</a>
+  </nav>
+
+  <article class="mx-auto max-w-3xl">
+    <header>
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">{CATEGORY_LABEL[recipe.category]}</span>
+        {recipe.tags.map((t) => (
+          <a href={`/dieet/${t}/`} class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600 hover:bg-gray-200">{DIET_LABEL[t]}</a>
+        ))}
+      </div>
+      <h1 class="mt-3 font-serif text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl">{recipe.title}</h1>
+      <p class="mt-3 text-gray-600">{recipe.intro}</p>
+
+      <div class="mt-4 grid grid-cols-3 gap-3 rounded-2xl border border-gray-200 bg-white p-4 text-center sm:grid-cols-4">
+        <div><div class="font-bold text-brand-700">{totalMin(recipe)} min</div><div class="text-xs text-gray-500">totaal</div></div>
+        <div><div class="font-bold text-brand-700">{recipe.servings}</div><div class="text-xs text-gray-500">personen</div></div>
+        <div><div class="font-bold text-brand-700">{recipe.nutrition.kcal}</div><div class="text-xs text-gray-500">kcal</div></div>
+        <div class="hidden sm:block"><div class="font-bold text-brand-700">{recipe.difficulty}</div><div class="text-xs text-gray-500">moeilijkheid</div></div>
+      </div>
+
+      <img
+        src={foodImage(recipe.imagePrompt)}
+        alt={recipe.title}
+        class="mt-6 h-72 w-full rounded-2xl object-cover shadow-soft"
+        loading="eager"
+      />
+      <div class="no-print mt-4 flex flex-wrap items-center gap-2 text-sm">
+        <span class="text-gray-500">Delen:</span>
+        <a
+          href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent('https://gezondweekmenu.nl' + canonical)}&description=${encodeURIComponent(recipe.intro)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 rounded-full bg-red-600 px-3 py-1.5 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5"
+        >
+          📌 Pinterest
+        </a>
+        <a
+          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://gezondweekmenu.nl' + canonical)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 rounded-full bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5"
+        >
+          Facebook
+        </a>
+        <a
+          href={`https://wa.me/?text=${encodeURIComponent(recipe.title + ' https://gezondweekmenu.nl' + canonical)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 rounded-full bg-green-600 px-3 py-1.5 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5"
+        >
+          WhatsApp
+        </a>
+      </div>
+    </header>
+
+    <section class="mt-8">
+      <h2 class="mb-3 font-serif text-2xl font-bold text-gray-900">Ingrediënten &amp; bereidingswijze</h2>
+      <RecipeServingScaler
+        client:load
+        baseServings={recipe.servings}
+        ingredients={recipe.ingredients}
+        steps={recipe.steps}
+        recipeTitle={recipe.title}
+      />
+      <div class="mt-3">
+        <a href={`/boodschappenlijst/?recept=${recipe.slug}`} class="inline-block rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700">
+          + Voeg toe aan boodschappenlijst
+        </a>
+      </div>
+    </section>
+
+    {recipe.variations.length > 0 && (
+      <section class="mt-8">
+        <h2 class="mb-3 font-serif text-2xl font-bold text-gray-900">Variaties</h2>
+        <div class="grid gap-3 sm:grid-cols-2">
+          {recipe.variations.map((v) => (
+            <div class="rounded-2xl border border-accent-200 bg-accent-50 p-4">
+              <div class="font-semibold text-accent-700">{v.title}</div>
+              <p class="mt-1 text-sm text-gray-700">{v.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {recipe.tips.length > 0 && (
+      <section class="mt-8">
+        <h2 class="mb-3 font-serif text-2xl font-bold text-gray-900">Handige tips</h2>
+        <div class="rounded-2xl border border-gray-200 bg-white p-5">
+          <ul class="space-y-2 text-sm text-gray-700">
+            {recipe.tips.map((t) => (
+              <li class="flex gap-2"><span class="text-brand-600">✓</span><span>{t}</span></li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    <section class="mt-8">
+      <h2 class="mb-3 font-serif text-2xl font-bold text-gray-900">Voedingswaarde</h2>
+      <div class="grid grid-cols-5 gap-2 rounded-2xl border border-gray-200 bg-white p-4 text-center text-sm">
+        <div><div class="font-bold text-gray-900">{recipe.nutrition.kcal}</div><div class="text-xs text-gray-500">kcal</div></div>
+        <div><div class="font-bold text-gray-900">{recipe.nutrition.protein} g</div><div class="text-xs text-gray-500">eiwit</div></div>
+        <div><div class="font-bold text-gray-900">{recipe.nutrition.carbs} g</div><div class="text-xs text-gray-500">koolhydr.</div></div>
+        <div><div class="font-bold text-gray-900">{recipe.nutrition.fat} g</div><div class="text-xs text-gray-500">vet</div></div>
+        <div><div class="font-bold text-gray-900">{recipe.nutrition.fiber} g</div><div class="text-xs text-gray-500">vezels</div></div>
+      </div>
+      <p class="mt-2 text-xs text-gray-400">Voedingswaarde is een indicatie op basis van standaard tabellen. Hier kunnen geen rechten aan worden ontleend.</p>
+    </section>
+
+    <p class="mt-8 rounded-2xl border border-gray-200 bg-white p-4 text-xs text-gray-500">
+      ⚠️ Disclaimer: dit recept is louter informatief en geen medisch of voedingsadvies. Raadpleeg bij vragen je huisarts of een diëtist.
+    </p>
+  </article>
+
+  {related.length > 0 && (
+    <section class="mt-12">
+      <h2 class="mb-4 font-serif text-2xl font-bold text-gray-900">Meer gezonde {CATEGORY_LABEL[recipe.category].toLowerCase()}-recepten</h2>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {related.map((r) => <RecipeCard recipe={r} />)}
+      </div>
+    </section>
+  )}
+</Layout>

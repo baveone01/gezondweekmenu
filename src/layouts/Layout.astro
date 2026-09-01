@@ -1,0 +1,124 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'Gezond Weekmenu | Ook jij kunt gezond en makkelijk koken',
+  description = 'Gezonde weekmenu’s, recepten en boodschappenlijsten voor drukke gezinnen. Vind weekmenu’s en gezonde recepten voor het hele gezin – zonder stress.',
+  canonical,
+} = Astro.props;
+
+const siteTitle = 'Gezondweekmenu.nl';
+const siteUrl = 'https://gezondweekmenu.nl';
+const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
+const canonicalUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/weekmenu/', label: 'Weekmenu’s' },
+  { href: '/recepten/', label: 'Recepten' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/boodschappenlijst/', label: 'Boodschappenlijst' },
+  { href: '/over-ons/', label: 'Over ons' },
+];
+---
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=healthy%20weekly%20meal%20planning%2C%20vegetables%2C%20mediterranean%20food%20spread&image_size=landscape_16_9" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥗</text></svg>" />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <header class="sticky top-0 z-40 border-b border-gray-200/70 bg-white/85 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+        <a href="/" class="flex items-center gap-2 text-lg font-bold text-brand-700">
+          <span class="text-2xl">🥗</span>
+          <span>Gezondweekmenu<span class="text-accent-600">.nl</span></span>
+        </a>
+        <nav class="hidden items-center gap-1 md:flex">
+          {
+            navLinks.map((l) => (
+              <a
+                href={l.href}
+                class:list={[
+                  'rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+                  Astro.url.pathname === l.href || (l.href !== '/' && Astro.url.pathname.startsWith(l.href))
+                    ? 'bg-brand-50 text-brand-700'
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                ]}
+              >
+                {l.label}
+              </a>
+            ))
+          }
+        </nav>
+        <a href="/boodschappenlijst/" class="rounded-xl bg-gradient-to-r from-brand-600 to-accent-600 px-4 py-2 text-sm font-semibold text-white shadow-lift transition-transform hover:-translate-y-0.5">
+          Maak boodschappenlijst
+        </a>
+      </div>
+    </header>
+
+    <main class="mx-auto w-full max-w-6xl flex-1 px-4 py-8">
+      <slot />
+    </main>
+
+    <footer class="mt-12 border-t border-gray-200 bg-white">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-3">
+        <div>
+          <p class="text-lg font-bold text-brand-700">Gezondweekmenu.nl</p>
+          <p class="mt-2 text-sm text-gray-500">Gezonde weekmenu’s en recepten voor drukke gezinnen. Makkelijk, voedzaam en zonder stress.</p>
+        </div>
+        <div>
+          <p class="mb-2 text-sm font-semibold text-gray-800">Snel naar</p>
+          <ul class="space-y-1 text-sm text-gray-500">
+            <li><a class="hover:text-brand-600" href="/weekmenu/">Alle weekmenu’s</a></li>
+            <li><a class="hover:text-brand-600" href="/recepten/">Alle recepten</a></li>
+            <li><a class="hover:text-brand-600" href="/blog/">Gezond blog</a></li>
+            <li><a class="hover:text-brand-600" href="/boodschappenlijst/">Boodschappenlijst-generator</a></li>
+            <li><a class="hover:text-brand-600" href="/dieet/vegetarisch/">Vegetarische recepten</a></li>
+            <li><a class="hover:text-brand-600" href="/dieet/koolhydraatarm/">Koolhydraatarme recepten</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mb-2 text-sm font-semibold text-gray-800">Informatie</p>
+          <ul class="space-y-1 text-sm text-gray-500">
+            <li><a class="hover:text-brand-600" href="/over-ons/">Over ons</a></li>
+            <li><a class="hover:text-brand-600" href="/contact/">Contact</a></li>
+            <li><a class="hover:text-brand-600" href="/privacybeleid/">Privacybeleid</a></li>
+            <li><a class="hover:text-brand-600" href="/disclaimer/">Disclaimer</a></li>
+            <li><a class="hover:text-brand-600" href="/cookiebeleid/">Cookiebeleid</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-100 py-4 text-center text-xs text-gray-400">
+        © {new Date().getFullYear()} Gezondweekmenu.nl · We gebruiken AI om onze recepten te inspireren. De voedingswaarde is een indicatie en geen medisch advies.
+      </div>
+    </footer>
+  </body>
+</html>

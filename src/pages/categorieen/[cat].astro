@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RecipeCard from '../../components/RecipeCard.astro';
+import { recipesByCategory } from '../../data/recipes';
+import { CATEGORY_LABEL, CATEGORY_DESC, CATEGORY_SLUG } from '../../data/types';
+
+export function getStaticPaths() {
+  const categories = ['ontbijt', 'lunch', 'avondeten', 'soep', 'salade', 'dessert'] as const;
+  return categories.map((c) => ({
+    params: { cat: CATEGORY_SLUG[c] },
+    props: { cat: c },
+  }));
+}
+
+const { cat } = Astro.props;
+const items = recipesByCategory(cat);
+const title = `${CATEGORY_LABEL[cat]} recepten – gezond & makkelijk`;
+const canonical = `/categorieen/${CATEGORY_SLUG[cat]}/`;
+---
+
+<Layout title={title} description={CATEGORY_DESC[cat]} canonical={canonical}>
+  <nav class="mb-4 text-sm text-gray-500">
+    <a href="/" class="hover:text-brand-600">Home</a> / <a href="/recepten/" class="hover:text-brand-600">Recepten</a> / {CATEGORY_LABEL[cat]}
+  </nav>
+  <header class="mb-6 max-w-2xl">
+    <h1 class="font-serif text-3xl font-extrabold text-gray-900">{CATEGORY_LABEL[cat]} recepten</h1>
+    <p class="mt-2 text-gray-600">{CATEGORY_DESC[cat]}</p>
+  </header>
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {items.map((r) => <RecipeCard recipe={r} />)}
+  </div>
+</Layout>

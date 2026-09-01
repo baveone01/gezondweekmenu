@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BoodschappenlijstGenerator from '../../components/BoodschappenlijstGenerator';
+---
+
+<Layout
+  title="Boodschappenlijst-generator | Maak zelf je lijst"
+  description="Genereer gratis je eigen boodschappenlijst: kies gezonde recepten, pas de porties aan en krijg automatisch een gesorteerde lijst per categorie."
+  canonical="/boodschappenlijst/"
+>
+  <nav class="mb-4 text-sm text-gray-500"><a href="/" class="hover:text-brand-600">Home</a> / Boodschappenlijst-generator</nav>
+  <header class="mb-6 max-w-2xl">
+    <h1 class="font-serif text-3xl font-extrabold text-gray-900">Maak je eigen boodschappenlijst</h1>
+    <p class="mt-2 text-gray-600">
+      Kies welke gezonde gerechten je deze week gaat maken, pas het aantal porties aan en genereer
+      automatisch een bijpassende en gesorteerde boodschappenlijst. Gemakkelijk printbaar, zodat je in één
+      keer alles in huis haalt.
+    </p>
+  </header>
+
+  <div class="rounded-3xl border border-gray-200 bg-white/60 p-5 sm:p-8">
+    <BoodschappenlijstGenerator client:load />
+  </div>
+</Layout>

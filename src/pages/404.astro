@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Pagina niet gevonden | Gezondweekmenu.nl" description="De pagina die je zoekt bestaat niet (of niet meer). Bekijk onze weekmenu's en gezonde recepten." canonical="/404/">
+  <section class="mx-auto max-w-xl py-16 text-center">
+    <div class="text-6xl">🥕</div>
+    <h1 class="mt-4 font-serif text-3xl font-extrabold text-gray-900">Oeps, deze pagina bestaat niet</h1>
+    <p class="mt-3 text-gray-600">
+      De pagina die je zoekt is verplaatst of niet meer beschikbaar. Probeer via de onderstaande links verder te zoeken.
+    </p>
+    <div class="mt-6 flex flex-wrap justify-center gap-3">
+      <a href="/" class="rounded-xl bg-gradient-to-r from-brand-600 to-accent-600 px-5 py-3 text-sm font-semibold text-white">Naar de homepage</a>
+      <a href="/weekmenu/" class="rounded-xl border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-700">Alle weekmenu's</a>
+      <a href="/recepten/" class="rounded-xl border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-700">Alle recepten</a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RecipeCard from '../../components/RecipeCard.astro';
+import { recipes } from '../../data/recipes';
+import { CATEGORY_SLUG, CATEGORY_LABEL } from '../../data/types';
+
+const cats = ['ontbijt', 'lunch', 'avondeten', 'soep', 'salade', 'dessert'] as const;
+---
+
+<Layout
+  title="Gezonde Recepten | Gezondweekmenu.nl"
+  description="Alle gezonde recepten op een rij: ontbijt, lunch, avondeten, soep, salade en dessert. Simpele, voedzame recepten in 30 minuten of minder."
+  canonical="/recepten/"
+>
+  <nav class="mb-4 text-sm text-gray-500"><a href="/" class="hover:text-brand-600">Home</a> / Recepten</nav>
+  <header class="mb-6 max-w-2xl">
+    <h1 class="font-serif text-3xl font-extrabold text-gray-900">Gezonde recepten</h1>
+    <p class="mt-2 text-gray-600">Van snelle avondmaaltijden tot gezonde desserts: elk recept staat in 30 minuten of minder op tafel en is perfect voor het hele gezin.</p>
+  </header>
+
+  <section class="mb-8 flex flex-wrap gap-2">
+    <a href="/recepten/" class="rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white">Alle</a>
+    {cats.map((c) => (
+      <a href={`/categorieen/${CATEGORY_SLUG[c]}/`} class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:border-brand-300">{CATEGORY_LABEL[c]}</a>
+    ))}
+  </section>
+
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {recipes.map((r) => <RecipeCard recipe={r} />)}
+  </div>
+</Layout>

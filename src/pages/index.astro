@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RecipeCard from '../components/RecipeCard.astro';
+import MenuCard from '../components/MenuCard.astro';
+import { featuredRecipes, recipes } from '../data/recipes';
+import { weekmenus, featuredMenus } from '../data/weekmenus';
+import { blogPosts } from '../data/blogs';
+import { CATEGORY_SLUG, CATEGORY_LABEL, DIET_LABEL, foodImage } from '../data/types';
+
+const cats = [
+  { slug: CATEGORY_SLUG.avondeten, label: CATEGORY_LABEL.avondeten, emoji: '🍲' },
+  { slug: CATEGORY_SLUG.ontbijt, label: CATEGORY_LABEL.ontbijt, emoji: '🌅' },
+  { slug: CATEGORY_SLUG.lunch, label: CATEGORY_LABEL.lunch, emoji: '🥗' },
+  { slug: CATEGORY_SLUG.soep, label: CATEGORY_LABEL.soep, emoji: '🍜' },
+  { slug: CATEGORY_SLUG.salade, label: CATEGORY_LABEL.salade, emoji: '🥬' },
+  { slug: CATEGORY_SLUG.dessert, label: CATEGORY_LABEL.dessert, emoji: '🍫' },
+];
+
+const diets = [
+  { tag: 'vegetarisch', label: DIET_LABEL.vegetarisch },
+  { tag: 'koolhydraatarm', label: DIET_LABEL.koolhydraatarm },
+  { tag: 'snel', label: DIET_LABEL.snel },
+  { tag: 'glutenvrij', label: DIET_LABEL.glutenvrij },
+];
+---
+
+<Layout
+  title="Gezond Weekmenu | Ook jij kunt gezond en makkelijk koken"
+  description="Gevonden: gezonde weekmenu’s, recepten en boodschappenlijsten voor drukke gezinnen. Makkelijk, voedzaam en zonder stress – elke dag gezond eten."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Gezondweekmenu.nl',
+    url: 'https://gezondweekmenu.nl',
+    description: 'Gezonde weekmenu’s, recepten en boodschappenlijsten voor drukke gezinnen.',
+    inLanguage: 'nl',
+    publisher: { '@type': 'Organization', name: 'Gezondweekmenu.nl' },
+  })} />
+  <!-- Hero -->
+  <section class="overflow-hidden rounded-3xl border border-gray-200/80 bg-white shadow-soft">
+    <div class="grid items-center gap-6 md:grid-cols-2">
+      <div class="p-8 sm:p-12">
+        <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">
+          Voor drukke gezinnen
+        </span>
+        <h1 class="mt-4 font-serif text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl">
+          Gezonde weekmenu’s voor drukke gezinnen <span class="text-brand-600">zonder stress</span>
+        </h1>
+        <p class="mt-3 text-gray-600">
+          Elke week een gepland weekmenu met boodschappenlijst, klaar in 30 minuten. Geen gepuzzel meer met het avondeten voor je gezin — ook voor kieskeurige kinderen.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="/weekmenu/" class="rounded-xl bg-gradient-to-r from-brand-600 to-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-lift transition-transform hover:-translate-y-0.5">
+            Bekijk weekmenu’s
+          </a>
+          <a href="/recepten/" class="rounded-xl border border-brand-200 bg-white px-5 py-3 text-sm font-semibold text-brand-700 transition-colors hover:bg-brand-50">
+            Alle recepten
+          </a>
+        </div>
+      </div>
+      <div class="relative h-56 md:h-full">
+        <img
+          src={foodImage('healthy family meal planning spread: fresh vegetables, bowls of rice, salmon, herbs on a kitchen table, bright and appetizing', 'portrait_4_3')}
+          alt="Gezonde weekmenu vegetarische en koolhydraatarme recepten"
+          class="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Weekmenu highlight -->
+  <section class="mt-12">
+    <div class="mb-4 flex items-end justify-between">
+      <div>
+        <h2 class="font-serif text-2xl font-bold text-gray-900">Onze weekmenu’s</h2>
+        <p class="text-sm text-gray-500">Kant-en-klare menu’s voor 7 dagen, met boodschappenlijst.</p>
+      </div>
+      <a href="/weekmenu/" class="text-sm font-semibold text-brand-600 hover:text-brand-700">Alle weekmenu’s →</a>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {weekmenus.map((m) => <MenuCard menu={m} />)}
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="mt-12">
+    <h2 class="mb-4 font-serif text-2xl font-bold text-gray-900">Blader op categorie</h2>
+    <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+      {cats.map((c) => (
+        <a href={`/categorieen/${c.slug}/`} class="rounded-2xl border border-gray-200 bg-white p-4 text-center transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-soft">
+          <div class="text-3xl">{c.emoji}</div>
+          <div class="mt-1 text-sm font-semibold text-gray-800">{c.label}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Featured recipes -->
+  <section class="mt-12">
+    <div class="mb-4 flex items-end justify-between">
+      <div>
+        <h2 class="font-serif text-2xl font-bold text-gray-900">Populaire gezonde recepten</h2>
+        <p class="text-sm text-gray-500">De favorieten van onze lezers.</p>
+      </div>
+      <a href="/recepten/" class="text-sm font-semibold text-brand-600 hover:text-brand-700">Alle recepten →</a>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {recipes.slice(0, 6).map((r) => <RecipeCard recipe={r} />)}
+    </div>
+  </section>
+
+  <!-- Diet filters -->
+  <section class="mt-12">
+    <h2 class="mb-4 font-serif text-2xl font-bold text-gray-900">Zoek op voedingsstijl</h2>
+    <div class="flex flex-wrap gap-3">
+      {diets.map((d) => (
+        <a href={`/dieet/${d.tag}/`} class="rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700 transition-colors hover:bg-brand-100">
+          {d.label}
+        </a>
+      ))}
+      <a href="/boodschappenlijst/" class="rounded-full border border-accent-200 bg-accent-50 px-4 py-2 text-sm font-semibold text-accent-700 transition-colors hover:bg-accent-100">
+        🛒 Boodschappenlijst-generator
+      </a>
+    </div>
+  </section>
+
+  <!-- Tool CTA -->
+  <section class="mt-12 overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 to-accent-600 p-8 text-white sm:p-10">
+    <div class="max-w-2xl">
+      <h2 class="font-serif text-2xl font-bold">Weet je niet wat je gaat maken?</h2>
+      <p class="mt-2 text-brand-50">
+        Bouw je eigen weekmenu: kies welke gerechten je gaat maken en genereer automatisch een bijpassende boodschappenlijst.
+      </p>
+      <a href="/boodschappenlijst/" class="mt-5 inline-block rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand-700 shadow-lift transition-transform hover:-translate-y-0.5">
+        Open de boodschappenlijst-generator →
+      </a>
+    </div>
+  </section>
+
+  <!-- Blog teaser -->
+  <section class="mt-12">
+    <div class="mb-4 flex items-end justify-between">
+      <div>
+        <h2 class="font-serif text-2xl font-bold text-gray-900">Gezond blog</h2>
+        <p class="text-sm text-gray-500">Praktische tips over gezond eten en voeding.</p>
+      </div>
+      <a href="/blog/" class="text-sm font-semibold text-brand-600 hover:text-brand-700">Alle artikelen →</a>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-3">
+      {blogPosts.slice(0, 3).map((p) => (
+        <a href={`/blog/${p.slug}/`} class="group block overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift">
+          <div class="relative h-40 overflow-hidden">
+            <img src={foodImage(p.imagePrompt)} alt={p.title} loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            <span class="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-brand-700 backdrop-blur">{p.category}</span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-serif text-base font-semibold leading-snug text-gray-900 group-hover:text-brand-700">{p.title}</h3>
+            <div class="mt-1 text-xs text-gray-500">⏱ {p.readingTime} min leestijd</div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- SEO text block -->
+  <section class="mt-12 rounded-2xl border border-gray-200 bg-white p-6">
+    <h2 class="mb-2 font-serif text-xl font-bold text-gray-900">Waarom een gezond weekmenu?</h2>
+    <p class="text-sm text-gray-600">
+      Een gezond weekmenu neemt de dagelijkse stress over wat je gaat eten weg. Door vooraf te plannen eet je gevarieerder,
+      verspil je minder eten en bespaar je tijd. Op Gezondweekmenu.nl vind je weekmenu’s voor gezinnen, koolhydraatarme en
+      vegetarische menu’s, plus stap-voor-stap recepten die in 30 minuten op tafel staan. Elke weekmenu heeft een complete
+      boodschappenlijst, zodat je in één keer alles in huis haalt.
+    </p>
+    <div class="mt-4 flex flex-wrap gap-2">
+      <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">gezond avondeten</span>
+      <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">gezonde recepten</span>
+      <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">weekmenu met boodschappenlijst</span>
+      <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">makkelijke maaltijden gezin</span>
+    </div>
+  </section>
+</Layout>

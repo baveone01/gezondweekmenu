@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-[#f7faf7] text-gray-800 antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+}
+@property --spin { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+
+/* Print: bewaar alleen de receptinhoud, verberg header/footer/sidebar */
+@media print {
+  header, footer, nav, .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+  }
+  main {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  a {
+    color: #111 !important;
+  }
+  @page {
+    margin: 1.2cm;
+  }
+}

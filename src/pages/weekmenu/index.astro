@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MenuCard from '../../components/MenuCard.astro';
+import { weekmenus } from '../../data/weekmenus';
+---
+
+<Layout
+  title="Gezonde Weekmenu’s voor het hele gezin | Gezondweekmenu.nl"
+  description="Ontdek kant-en-klare gezonde weekmenu’s voor gezinnen: 7 dagen menu’s met complete boodschappenlijst, meal prep tips en gezonde recepten."
+  canonical="/weekmenu/"
+>
+  <nav class="mb-4 text-sm text-gray-500"><a href="/" class="hover:text-brand-600">Home</a> / Weekmenu’s</nav>
+  <header class="mb-6 max-w-2xl">
+    <h1 class="font-serif text-3xl font-extrabold text-gray-900">Gezonde weekmenu’s</h1>
+    <p class="mt-2 text-gray-600">
+      Plan je hele week vooruit en stop met stressen over het avondeten. Elk weekmenu bevat 7 dagen gezonde gerechten,
+      een complete boodschappenlijst en handige meal prep tips voor drukke gezinnen.
+    </p>
+  </header>
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {weekmenus.map((m) => <MenuCard menu={m} />)}
+  </div>
+
+  <section class="mt-10 rounded-2xl border border-gray-200 bg-white p-6">
+    <h2 class="mb-2 font-serif text-xl font-bold text-gray-900">Waarom een weekmenu met boodschappenlijst?</h2>
+    <p class="text-sm text-gray-600">
+      Met een gezond weekmenu eet je gevarieerder, gooi je minder weg en bespaar je tijd in de supermarkt. Omdat je vooraf
+      weet wat je eet, ben je bovendien minder snel geneigd om naar ongezonde quick fixes te grijpen. Elke weekmenu op deze
+      pagina is gericht op gewone gezinnen en bevat makkelijke, voedzame recepten die in 30 minuten op tafel staan.
+    </p>
+  </section>
+</Layout>

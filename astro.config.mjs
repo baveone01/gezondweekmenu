@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://gezondweekmenu.nl',
+  site: 'https://gezondweekmenu.snapvit.com',
   integrations: [
     react(),
     tailwind({ applyBaseStyles: false }),

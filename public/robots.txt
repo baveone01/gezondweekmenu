@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gezondweekmenu.nl/sitemap-index.xml
+Sitemap: https://gezondweekmenu.snapvit.com/sitemap-index.xml

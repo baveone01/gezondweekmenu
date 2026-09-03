@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import RecipeCard from '../../components/RecipeCard.astro';
 import RecipeServingScaler from '../../components/RecipeServingScaler';
 import { recipes, recipeBySlug } from '../../data/recipes';
-import { foodImage, totalMin, CATEGORY_LABEL, DIET_LABEL, CATEGORY_SLUG } from '../../data/types';
+import { imagePath, totalMin, CATEGORY_LABEL, DIET_LABEL, CATEGORY_SLUG } from '../../data/types';
 
 export function getStaticPaths() {
   return recipes.map((r) => ({ params: { slug: r.slug }, props: { recipe: r } }));
@@ -13,13 +13,14 @@ const { recipe } = Astro.props;
 const related = recipes.filter((r) => r.category === recipe.category && r.slug !== recipe.slug).slice(0, 3);
 const title = `${recipe.title} – Gezond recept`;
 const canonical = `/recepten/${recipe.slug}/`;
+const siteUrl = 'https://gezondweekmenu.snapvil.com';
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Recipe',
   name: recipe.title,
   description: recipe.intro,
-  image: [foodImage(recipe.imagePrompt, 'landscape_4_3')],
+  image: [siteUrl + imagePath(recipe.slug)],
   recipeCategory: CATEGORY_LABEL[recipe.category],
   keywords: ['gezond recept', CATEGORY_LABEL[recipe.category], ...recipe.tags.map((t) => DIET_LABEL[t])].join(', '),
   recipeYield: `${recipe.servings} porties`,
@@ -72,7 +73,7 @@ const schema = {
       </div>
 
       <img
-        src={foodImage(recipe.imagePrompt)}
+        src={imagePath(recipe.slug)}
         alt={recipe.title}
         class="mt-6 h-72 w-full rounded-2xl object-cover shadow-soft"
         loading="eager"
@@ -80,7 +81,7 @@ const schema = {
       <div class="no-print mt-4 flex flex-wrap items-center gap-2 text-sm">
         <span class="text-gray-500">Delen:</span>
         <a
-          href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent('https://gezondweekmenu.snapvit.com' + canonical)}&description=${encodeURIComponent(recipe.intro)}`}
+          href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(siteUrl + canonical)}&description=${encodeURIComponent(recipe.intro)}`}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-1 rounded-full bg-red-600 px-3 py-1.5 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5"
@@ -88,7 +89,7 @@ const schema = {
           📌 Pinterest
         </a>
         <a
-          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://gezondweekmenu.snapvit.com' + canonical)}`}
+          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://gezondweekmenu.snapvil.com' + canonical)}`}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-1 rounded-full bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5"
@@ -96,7 +97,7 @@ const schema = {
           Facebook
         </a>
         <a
-          href={`https://wa.me/?text=${encodeURIComponent(recipe.title + ' https://gezondweekmenu.snapvit.com' + canonical)}`}
+          href={`https://wa.me/?text=${encodeURIComponent(recipe.title + ' ' + siteUrl + canonical)}`}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-1 rounded-full bg-green-600 px-3 py-1.5 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5"

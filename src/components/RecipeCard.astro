@@ -1,5 +1,5 @@
 ---
-import { foodImage, totalMin, CATEGORY_LABEL, type RecipeMeta } from '../data/types';
+import { imagePath, totalMin, CATEGORY_LABEL, type RecipeMeta } from '../data/types';
 
 interface Props {
   recipe: RecipeMeta;
@@ -11,7 +11,7 @@ const url = `/recepten/${recipe.slug}/`;
 <a href={url} class="group block overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift">
   <div class="relative h-44 overflow-hidden">
     <img
-      src={foodImage(recipe.imagePrompt)}
+      src={imagePath(recipe.slug)}
       alt={recipe.title}
       loading="lazy"
       class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"

@@ -84,11 +84,10 @@ export const DIET_DESC: Record<DietTag, string> = {
   kindervriendelijk: 'Maaltijden waar ook kieskeurige kleintjes van genieten.',
 };
 
-// Gestandaardiseerde receptafbeelding via AI beeldservice
-export function foodImage(prompt: string, size = 'landscape_4_3'): string {
-  return `https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=${encodeURIComponent(
-    prompt
-  )}&image_size=${size}`;
+// Statische gerechtfoto, gebundeld onder /public/images/<slug>.jpg
+// (geen on-demand AI endpoint: dat werkt niet voor bezoekers op een live site)
+export function imagePath(slugOrKey: string): string {
+  return `/images/${slugOrKey}.jpg`;
 }
 
 // TotalTime in minuten

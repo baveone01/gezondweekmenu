@@ -14,7 +14,7 @@ const {
 } = Astro.props;
 
 const siteTitle = 'Gezondweekmenu.nl';
-const siteUrl = 'https://gezondweekmenu.snapvit.com';
+const siteUrl = 'https://gezondweekmenu.snapvil.com';
 const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
 const canonicalUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
 
@@ -44,7 +44,7 @@ const navLinks = [
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=healthy%20weekly%20meal%20planning%2C%20vegetables%2C%20mediterranean%20food%20spread&image_size=landscape_16_9" />
+    <meta property="og:image" content={`${siteUrl}/images/hero.jpg`} />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />

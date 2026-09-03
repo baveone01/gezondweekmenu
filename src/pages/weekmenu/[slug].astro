@@ -23,6 +23,7 @@ const linkedRecipes = [...linkedSlugs].map(recipeBySlug).filter((r): r is NonNul
 
 const title = `${menu.title} met boodschappenlijst`;
 const canonical = `/weekmenu/${menu.slug}/`;
+const siteUrl = 'https://gezondweekmenu.snapvil.com';
 
 const schema = {
   '@context': 'https://schema.org',
@@ -39,6 +40,15 @@ const schema = {
 
 <Layout title={title} description={menu.description} canonical={canonical}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Weekmenu’s', item: siteUrl + '/weekmenu/' },
+      { '@type': 'ListItem', position: 3, name: menu.title, item: siteUrl + canonical },
+    ],
+  })} />
   <nav class="mb-4 text-sm text-gray-500">
     <a href="/" class="hover:text-brand-600">Home</a> / <a href="/weekmenu/" class="hover:text-brand-600">Weekmenu’s</a> / {menu.weekLabel}
   </nav>

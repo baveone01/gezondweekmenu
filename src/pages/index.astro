@@ -7,6 +7,8 @@ import { weekmenus, featuredMenus } from '../data/weekmenus';
 import { blogPosts } from '../data/blogs';
 import { imagePath, CATEGORY_SLUG, CATEGORY_LABEL, DIET_LABEL } from '../data/types';
 
+const siteUrl = 'https://gezondweekmenu.snapvil.com';
+
 const cats = [
   { slug: CATEGORY_SLUG.avondeten, label: CATEGORY_LABEL.avondeten, emoji: '🍲' },
   { slug: CATEGORY_SLUG.ontbijt, label: CATEGORY_LABEL.ontbijt, emoji: '🌅' },
@@ -26,16 +28,29 @@ const diets = [
 
 <Layout
   title="Gezond Weekmenu | Ook jij kunt gezond en makkelijk koken"
-  description="Gevonden: gezonde weekmenu’s, recepten en boodschappenlijsten voor drukke gezinnen. Makkelijk, voedzaam en zonder stress – elke dag gezond eten."
+  description="Ontdek gezonde weekmenu’s, makkelijke recepten en complete boodschappenlijsten voor drukke gezinnen. Elke week gepland, voedzaam en klaar in 30 minuten – zonder stress."
 >
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Gezondweekmenu.nl',
-    url: 'https://gezondweekmenu.snapvil.com',
-    description: 'Gezonde weekmenu’s, recepten en boodschappenlijsten voor drukke gezinnen.',
-    inLanguage: 'nl',
-    publisher: { '@type': 'Organization', name: 'Gezondweekmenu.nl' },
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': siteUrl + '#website',
+        name: 'Gezondweekmenu.nl',
+        url: siteUrl,
+        description: 'Gezonde weekmenu’s, recepten en boodschappenlijsten voor drukke gezinnen.',
+        inLanguage: 'nl',
+        publisher: { '@id': siteUrl + '#organization' },
+      },
+      {
+        '@type': 'Organization',
+        '@id': siteUrl + '#organization',
+        name: 'Gezondweekmenu.nl',
+        url: siteUrl,
+        logo: { '@type': 'ImageObject', url: siteUrl + imagePath('hero') },
+        inLanguage: 'nl',
+      },
+    ],
   })} />
   <!-- Hero -->
   <section class="overflow-hidden rounded-3xl border border-gray-200/80 bg-white shadow-soft">
@@ -65,6 +80,7 @@ const diets = [
           alt="Gezonde weekmenu vegetarische en koolhydraatarme recepten"
           class="absolute inset-0 h-full w-full object-cover"
           loading="eager"
+          fetchpriority="high"
         />
       </div>
     </div>

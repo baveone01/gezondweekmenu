@@ -48,6 +48,15 @@ const schema = {
 
 <Layout title={title} description={recipe.intro} canonical={canonical}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Recepten', item: siteUrl + '/recepten/' },
+      { '@type': 'ListItem', position: 3, name: recipe.title, item: siteUrl + canonical },
+    ],
+  })} />
   <nav class="mb-4 text-sm text-gray-500">
     <a href="/" class="hover:text-brand-600">Home</a> /
     <a href="/recepten/" class="hover:text-brand-600">Recepten</a> /

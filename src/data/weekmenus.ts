@@ -440,6 +440,94 @@ export const weekmenus: WeekMenu[] = [
     imagePrompt:
       'High protein healthy weekly meal prep: grilled chicken, salmon, eggs, greek yogurt, legumes and almonds on a clean kitchen counter, fresh and nutritious, bright natural light, overhead food photography',
   },
+
+  {
+    slug: 'gezond-weekmenu-6-glutenvrij',
+    title: 'Gezond weekmenu 6: glutenvrij',
+    weekLabel: 'Weekmenu 6 · Glutenvrij',
+    description:
+      'Een volledig glutenvrij weekmenu vol eiwitten en groenten. 7 dagen glutenvrije recepten met complete boodschappenlijst voor het hele gezin.',
+    intro:
+      'Eet je glutenvrij of wil je graag minder gluten? Dit weekmenu bewijst dat je zonder gluten, pasta en brood prima gevarieerd en lekker kunt eten. Rijk aan eiwitten, groenten en smaakvolle gerechten, en alles is eenvoudig te bereiden.',
+    days: [
+      {
+        day: 'Maandag',
+        theme: 'Eiwitrijke start van de week',
+        ontbijt: { text: 'Eiwitrijke omelet met spinazie en feta', recipeSlug: 'eiwitrijke-omelet-met-spinazie-en-feta' },
+        lunch: { text: 'Warme kip-boerenkoolsalade met druiven', recipeSlug: 'kip-boerenkoolsalade' },
+        avondeten: { text: 'Gegrilde kip met bloemkoolrijst en groenten', recipeSlug: 'gegrilde-kip-met-bloemkoolrijst-en-groenten' },
+        snack: { text: 'Stukje fruit + handje noten' },
+      },
+      {
+        day: 'Dinsdag',
+        theme: 'Frisse, lichte gerechten',
+        ontbijt: { text: 'Chiapudding met vanille en blauwe bessen', recipeSlug: 'chiapudding-met-vanille-en-blauwe-bessen' },
+        lunch: { text: 'Sushi bowl met zalm en avocado', recipeSlug: 'sushi-bowl-met-zalm-en-avocado' },
+        avondeten: { text: 'Pittige roerbak met garnalen en groenten', recipeSlug: 'roerbak-met-garnalen-en-groenten' },
+        snack: { text: 'Magere Griekse yoghurt' },
+      },
+      {
+        day: 'Woensdag',
+        theme: 'Vega en toch vullend',
+        ontbijt: { text: 'Groene smoothie bowl met banaan en spinazie', recipeSlug: 'groene-smoothie-bowl-met-banaan-en-spinazie' },
+        lunch: { text: 'Tonijn-avocadosalade met citroen', recipeSlug: 'tonijn-avocadosalade-met-citroen' },
+        avondeten: { text: 'Biefstukreepjes met paddenstoelen en sperziebonen', recipeSlug: 'biefstukreepjes-met-paddenstoelen-en-sperziebonen' },
+        snack: { text: 'Gekookt ei' },
+      },
+      {
+        day: 'Donderdag',
+        theme: 'Soep als stevige maaltijd',
+        ontbijt: { text: 'Chiapudding met vanille en blauwe bessen', recipeSlug: 'chiapudding-met-vanille-en-blauwe-bessen' },
+        lunch: { text: 'Linzensalade met feta en tomaat', recipeSlug: 'linzensalade-met-feta-en-tomaat' },
+        avondeten: { text: 'Kabeljauw met geroosterde cherrytomaat en courgette', recipeSlug: 'kabeljauw-met-geroosterde-cherrytomaat-en-courgette' },
+        snack: { text: 'Wortelreepjes met hummus' },
+      },
+      {
+        day: 'Vrijdag',
+        theme: 'Gezellig en gemakkelijk',
+        ontbijt: { text: 'Groene smoothie bowl met banaan en spinazie', recipeSlug: 'groene-smoothie-bowl-met-banaan-en-spinazie' },
+        lunch: { text: 'Kip-caprese salade met basilicumdressing', recipeSlug: 'kip-caprese-salade' },
+        avondeten: { text: 'Gehaktballetjes in tomatensaus met courgettepasta', recipeSlug: 'gehaktballetjes-in-tomatensaus-met-courgettepasta' },
+        snack: { text: 'Stukje fruit' },
+      },
+      {
+        day: 'Zaterdag',
+        theme: 'Bijzonder en smaakvol',
+        ontbijt: { text: 'Overnight oats met blauwe bessen', recipeSlug: 'overnight-oats-met-bessen' },
+        lunch: { text: 'Geroosterde groente met tonijnsalade', recipeSlug: 'gegrilde-groente-met-tonijnsalade' },
+        avondeten: { text: 'Romige kikkererwtencurry met spinazie', recipeSlug: 'kikkererwtencurry-met-spinazie' },
+        snack: { text: 'Gezonde chocolade-bananenmuffin', recipeSlug: 'chocolade-bananenmuffins' },
+      },
+      {
+        day: 'Zondag',
+        theme: 'Restjes opmaken en voorbereiden',
+        ontbijt: { text: 'Brunch met eiwitrijke omelet en avocado', recipeSlug: 'eiwitrijke-omelet-met-spinazie-en-feta' },
+        lunch: { text: 'Restjes van de week oproemen' },
+        avondeten: { text: 'Geroosterde groente-salade met extra kip', recipeSlug: 'ovengroente-salade-met-feta' },
+        snack: { text: 'Bananen \u2018nicecream\u2019 met cacao', recipeSlug: 'bananenfrozen-yoghurt-met-cacao' },
+      },
+    ],
+    shoppingList: [
+      { group: 'Groenten', items: ['spinazie (300 g + extra)', '2 courgettes', 'bloemkool (1 grote)', '2 paprika\'s', 'sugarsnaps (150 g)', 'sperziebonen (250 g)', 'kastanjechampignons (200 g)', 'cherrytomaatjes (250 g)', '1 romaatje tomaat', 'avocado (2x)', 'jonge boerenkool (200 g)', 'druiven (100 g)', 'ui (3x)', 'knoflook (meerdere tenen)', 'gember', 'wortels (3x)', 'prei', 'bleekselderij', 'basilicum', 'rucola'] },
+      { group: 'Vlees & vis', items: ['kipfilet (700 g)', 'garnalen (250 g)', 'runderbiefstuk (300 g)', 'rundergehakt (500 g)', 'kabeljauwfilets (2x)', 'tonijn op water (2 blikken)', 'gerookte zalm (150 g)'] },
+      { group: 'Zuivel & plantaardig', items: ['eieren (1 dozijn)', 'feta (150 g)', 'magere Griekse yoghurt', 'burrata (100 g)', '(plantaardige) melk'] },
+      { group: 'Peulvruchten & granen', items: ['kikkererwten (2-3 blikken)', 'linzen (1-2 blikken)', 'rode linzen (200 g)', 'sushirijst of zilvervliesrijst (150 g)', 'havermout (glutenvrij)'] },
+      { group: 'Houdbaar & specerijen', items: ['chiazaad', 'cacaopoeder', 'pindakaas', 'pompoenpitten', 'walnoten', 'amandelen', 'kokosmelk (2 blikken)', 'tomatenblokjes (2 blikken)', 'olijfolie', 'sojasaus glutenvrij / tamari', 'sesamolie', 'dijonmosterd', 'balsamico-azijn'] },
+    ],
+    prepTips: [
+      'Maak de chiapudding en overnight oats de avond van tevoren, zodat het ontbijt de volgende ochtend klaarstaat.',
+      'Vries de kikkererwtencurry en een portie biefstukreepjes in voor dagen dat je geen tijd hebt.',
+      'Gebruik gecertificeerd glutenvrije producten (sojasaus, havermout) voor een echt glutenvrij weekmenu.',
+      'Blancheer jonge boerenkool en bak een dubbele portie kip; zo heb je de volgende lunch al klaar.',
+    ],
+    faq: [
+      { q: 'Is dit weekmenu echt volledig glutenvrij?', a: 'Ja. Alle gerechten zijn van nature glutenvrij of gebruiken glutenvrije vervangers zoals tamari en glutenvrije havermout. Let bij kopen op het glutenvrij-keurmerk.' },
+      { q: 'Krijg ik genoeg eiwitten binnen?', a: 'Ja. Kip, garnalen, biefstuk, kabeljauw, eieren, zuivel, tonijn en peulvruchten leveren ruim voldoende eiwitten voor het hele gezin.' },
+      { q: 'Kan ik dit weekmenu ook vegetarisch maken?', a: 'Zeker. Vervang vlees en vis door tofu, kikkererwten of vegetarisch gehakt. Veel recepten hebben al een vegetarische of vegan variant.' },
+    ],
+    imagePrompt:
+      'Gluten-free healthy weekly meal prep spread: grilled chicken, cauliflower rice, chickpea curry, salmon, eggs, vegetables and berries on a light wooden table, fresh and vibrant, overhead food photography',
+  },
 ];
 
 export const weekmenuBySlug = (slug: string): WeekMenu | undefined =>

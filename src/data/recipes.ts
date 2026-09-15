@@ -748,6 +748,619 @@ export const recipes: RecipeMeta[] = [
     imagePrompt:
       'Roasted vegetable salad with feta and walnuts in a rustic bowl, caramelized vegetables with balsamic drizzle, warm hearty colours, food photography',
   },
+
+  {
+    slug: 'eiwitrijke-omelet-met-spinazie-en-feta',
+    title: 'Eiwitrijke omelet met spinazie en feta',
+    intro:
+      'Een eiwitrijk, koolhydraatarm ontbijt dat in 10 minuten klaar is. Met spinazie, cherrytomaatjes en romige feta. Perfect voor een stevige start van de dag.',
+    category: 'ontbijt',
+    tags: ['gezond', 'vegetarisch', 'glutenvrij', 'snel'],
+    prepMin: 5,
+    cookMin: 8,
+    servings: 1,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '3', name: 'eieren' },
+      { qty: '1 el', name: 'water' },
+      { qty: '2 handjes', name: 'verse spinazie' },
+      { qty: '40 g', name: 'feta, verkruimeld' },
+      { qty: '6', name: 'cherrytomaatjes, gehalveerd' },
+      { qty: '1 tl', name: 'olijfolie' },
+      { qty: 'peper &', name: 'zout' },
+    ],
+    steps: [
+      'Klop de eieren los met het water, peper en zout.',
+      'Verhit de olijfolie in een koekenpan en laat de spinazie in 1 minuut slinken.',
+      'Schenk het ei over de spinazie en verdeel de tomaatjes erover. Bak op middelhoog vuur tot de onderkant stevig is.',
+      'Vouw de omelet dubbel, verkruimel de feta erover en bak nog 1 minuut.',
+      'Laat de omelet met de deksel erop nog 1 minuut garen voor een romige binnenkant en serveer direct.',
+    ],
+    variations: [
+      { title: 'Extra vulling', text: 'Voeg 100 g gegrilde kipreepjes of wat champignons toe aan de spinazie.' },
+      { title: 'Vegan', text: 'Vervang de eieren door een plantaardig ei-alternatief en laat de feta weg; voeg avocado toe.' },
+    ],
+    tips: [
+      'Klop een scheutje water door de eieren; dat maakt de omelet luchtiger.',
+      'Verwarm de pan goed voordat de eieren erin gaan; zo plakt de omelet niet.',
+    ],
+    nutrition: { kcal: 320, protein: 28, carbs: 6, fat: 21, fiber: 2 },
+    imagePrompt:
+      'High protein spinach and feta omelet with cherry tomatoes folded on a white plate, bright morning kitchen light, healthy Dutch breakfast food photography, top-down',
+  },
+
+  {
+    slug: 'chiapudding-met-vanille-en-blauwe-bessen',
+    title: 'Chiapudding met vanille en blauwe bessen',
+    intro:
+      'Een glutenvrij, vezelrijk ontbijt dat je de avond van tevoren klaarmaakt. Romige chiapudding met vanillesmaak en blauwe bessen, zonder toegevoegde suiker.',
+    category: 'ontbijt',
+    tags: ['gezond', 'vegan', 'glutenvrij', 'snel'],
+    prepMin: 10,
+    cookMin: 0,
+    servings: 2,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '60 g', name: 'chiazaad' },
+      { qty: '400 ml', name: '(plantaardige) melk' },
+      { qty: '1 el', name: 'ahornsiroop' },
+      { qty: '1 tl', name: 'vanille-extract' },
+      { qty: '150 g', name: 'blauwe bessen' },
+      { qty: '2 el', name: 'ongezogen kokosvlokken (optioneel)' },
+    ],
+    steps: [
+      'Meng het chiazaad, de melk, ahornsiroop en vanille in een kom.',
+      'Laat 5 minuten staan en roer nogmaals zodat de zaden niet klonteren.',
+      'Roer de helft van de blauwe bessen erdoor, dek af en zet minstens 4 uur of een nacht in de koelkast.',
+      'Schep de pudding om en verdeel de overige blauwe bessen en kokosvlokken erover.',
+    ],
+    variations: [
+      { title: 'Extra eiwit', text: 'Voeg een schep plantaardig eiwitpoeder toe voor een eiwitrijker ontbijt.' },
+      { title: 'Zoeter', text: 'Voeg wat extra ahornsiroop of een paar dadels toe, of gebruik rijpere bessen.' },
+    ],
+    tips: [
+      'Chiazaad absorbeert veel vocht; voeg extra melk toe als de pudding te dik wordt.',
+      'Gebruik een jampotje met deksel voor een makkelijke on-the-go versie.',
+    ],
+    nutrition: { kcal: 340, protein: 12, carbs: 34, fat: 18, fiber: 15 },
+    imagePrompt:
+      'Creamy vanilla chia pudding in a glass jar with fresh blueberries and coconut flakes on top, bright minimal healthy breakfast styling, natural morning light',
+  },
+
+  {
+    slug: 'groene-smoothie-bowl-met-banaan-en-spinazie',
+    title: 'Groene smoothie bowl met banaan en spinazie',
+    intro:
+      'Een frisse, vegan smoothie bowl vol groenten en fruit met een vleugje gember. In 5 minuten klaar en rijk aan vezels en vitamines.',
+    category: 'ontbijt',
+    tags: ['gezond', 'vegan', 'glutenvrij', 'snel'],
+    prepMin: 5,
+    cookMin: 0,
+    servings: 1,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '1', name: 'rijpe banaan, in stukken' },
+      { qty: '2 handjes', name: 'verse spinazie' },
+      { qty: '1/2', name: 'komkommer, in blokjes' },
+      { qty: '1 tl', name: 'gember, geraspt' },
+      { qty: '100 ml', name: '(plantaardige) melk of water' },
+      { qty: '1 el', name: 'pompoenpitten (topping)' },
+      { qty: '1/2', name: 'appel, in partjes (topping)' },
+    ],
+    steps: [
+      'Doe de banaan, spinazie, komkommer, gember en melk in een blender en pureer glad.',
+      'Voeg eventueel ijsblokjes of extra melk toe tot de gewenste dikte.',
+      'Schep de smoothie in een kom en garneer met pompoenpitten en appelpartjes.',
+      'Eet de bowl met een lepel, direct na bereiding.',
+    ],
+    variations: [
+      { title: 'Eiwitrijk', text: 'Voeg een schep plantaardig proteïnepoeder toe voor extra eiwitten.' },
+      { title: 'Zoeter', text: 'Voeg een paar dadels of een banaan extra toe in plaats van suiker.' },
+    ],
+    tips: [
+      'Vries de banaan in plakken in voor een dikke, romige bowl.',
+      'Bewaar een lepel van de bowl als inspiratie voor je eigen toppings; noten, zaden en fruit werken goed.',
+    ],
+    nutrition: { kcal: 230, protein: 8, carbs: 40, fat: 6, fiber: 9 },
+    imagePrompt:
+      'Green smoothie bowl with banana, spinach and cucumber topped with pumpkin seeds and apple slices, vibrant green, fresh vegan breakfast, overhead bright food styling',
+  },
+
+  {
+    slug: 'tonijn-avocadosalade-met-citroen',
+    title: 'Tonijn-avocadosalade met citroen',
+    intro:
+      'Een snelle, eiwitrijke lunch zonder brood. Romige tonijn-avocadosalade op een bedje van rucola, met citroen en lente-ui. Koolhydraatarm en glutenvrij.',
+    category: 'lunch',
+    tags: ['gezond', 'glutenvrij', 'snel'],
+    prepMin: 10,
+    cookMin: 0,
+    servings: 2,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '1 blik (160 g)', name: 'tonijn op water, uitgelekt' },
+      { qty: '1', name: 'rijpe avocado' },
+      { qty: '2 el', name: 'magere Griekse yoghurt' },
+      { qty: '1 el', name: 'citroensap' },
+      { qty: '1/2', name: 'lente-ui, fijngehakt' },
+      { qty: 'handje', name: 'verse peterselie, fijngehakt' },
+      { qty: '100 g', name: 'rucola' },
+      { qty: 'peper &', name: 'zout' },
+    ],
+    steps: [
+      'Prak de avocado grof in een kom.',
+      'Meng de tonijn, yoghurt, het citroensap, de lente-ui en peterselie erdoor.',
+      'Breng op smaak met peper en zout.',
+      'Leg de rucola op twee borden en schep de tonijn-avocadosalade erop.',
+    ],
+    variations: [
+      { title: 'Extra groente', text: 'Voeg komkommer of paprika in blokjes toe voor extra crunch.' },
+      { title: 'Met cracker', text: 'Serveer met glutenvrije rijstwafels voor een stevigere lunch.' },
+    ],
+    tips: [
+      'Kies tonijn op water in plaats van op olie voor een magere, lagere calorie-inname.',
+      'Druppel meteen citroensap over de avocado zodat hij niet verkleurt.',
+    ],
+    nutrition: { kcal: 300, protein: 25, carbs: 10, fat: 19, fiber: 7 },
+    imagePrompt:
+      'Fresh tuna avocado salad with lemon on a bed of rocket leaves in a white bowl, bright natural light, healthy high protein lunch food photography, top-down',
+  },
+
+  {
+    slug: 'sushi-bowl-met-zalm-en-avocado',
+    title: 'Sushi bowl met zalm, avocado en rijst',
+    intro:
+      'Alle smaken van sushi, maar dan in een makkelijke kom. Met gerookte zalm, avocado, komkommer en een frisse sessamdressing. Eiwitrijk en glutenvrij.',
+    category: 'lunch',
+    tags: ['gezond', 'glutenvrij'],
+    prepMin: 20,
+    cookMin: 15,
+    servings: 2,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '150 g', name: 'sushirijst of zilvervliesrijst' },
+      { qty: '150 g', name: 'gerookte zalm, in reepjes' },
+      { qty: '1', name: 'avocado, in blokjes' },
+      { qty: '1/2', name: 'komkommer, in dunne reepjes' },
+      { qty: '1', name: 'wortel, in julienne' },
+      { qty: '1 el', name: 'sojasaus (glutenvrij of tamari)' },
+      { qty: '1 tl', name: 'sesamolie' },
+      { qty: '1 tl', name: 'geroosterd sesamzaad' },
+      { qty: '1/2', name: 'limoen (sap)' },
+    ],
+    steps: [
+      'Kook de rijst volgens de aanwijzingen op de verpakking en laat iets afkoelen.',
+      'Verdeel de rijst over twee kommen.',
+      'Schik de zalm, avocado, komkommer en wortel mooi bovenop de rijst.',
+      'Klop de sojasaus, sesamolie en het limoensap tot een dressing en schenk erover.',
+      'Bestrooi met geroosterde sesamzaadjes en serveer direct.',
+    ],
+    variations: [
+      { title: 'Vegetarisch', text: 'Vervang de zalm door gebakken tofu voor een vegetarische versie.' },
+      { title: 'Extra knapperig', text: 'Voeg stukjes nori of komkommer toe voor extra bite.' },
+    ],
+    tips: [
+      'Gebruik sushi-azijn door de warme rijst voor een echte sushismaak.',
+      'Serveer de kom koud; bewaar restjes afgedekt in de koelkast en eet dezelfde dag op.',
+    ],
+    nutrition: { kcal: 480, protein: 28, carbs: 55, fat: 18, fiber: 7 },
+    imagePrompt:
+      'Sushi bowl with smoked salmon, avocado, cucumber and carrot over rice in a bowl, sesame seeds and drizzle, vibrant fresh Japanese inspired food photography, overhead',
+  },
+
+  {
+    slug: 'kip-boerenkoolsalade',
+    title: 'Warme kip-boerenkoolsalade met druiven en walnoten',
+    intro:
+      'Een voedzame, eiwitrijke lunchsalade met zachte boerenkool, gebakken kip, zoete druiven en geroosterde walnoten in een frisse mosterd-dressing.',
+    category: 'lunch',
+    tags: ['gezond', 'glutenvrij'],
+    prepMin: 15,
+    cookMin: 10,
+    servings: 2,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '200 g', name: 'kipfilet, in reepjes' },
+      { qty: '200 g', name: 'jonge boerenkool' },
+      { qty: '100 g', name: 'druiven, gehalveerd' },
+      { qty: '2 el', name: 'walnoten, grof gehakt' },
+      { qty: '3 el', name: 'magere Griekse yoghurt' },
+      { qty: '1 tl', name: 'mosterd' },
+      { qty: '1 el', name: 'citroensap' },
+      { qty: '1 el', name: 'olijfolie' },
+      { qty: 'peper &', name: 'zout' },
+    ],
+    steps: [
+      'Verhit de olijfolie in een pan en bak de kipreepjes goudbruin en gaar. Breng op smaak met peper en zout.',
+      'Blancheer de boerenkool 2 minuten in kokend water en laat goed uitlekken.',
+      'Rooster de walnoten kort in een droge koekenpan.',
+      'Klop de yoghurt, mosterd en het citroensap tot een dressing.',
+      'Meng de boerenkool met de warme kip, druiven, walnoten en dressing. Serveer lauwwarm.',
+    ],
+    variations: [
+      { title: 'Vegan', text: 'Vervang de kip door geroosterde kikkererwten en de yoghurt door een plantaardige variant.' },
+      { title: 'Extra vulling', text: 'Voeg gekookte quinoa toe voor een complete maaltijd.' },
+    ],
+    tips: [
+      'Masseer jonge boerenkool even met wat olijfolie voor een zachtere structuur.',
+      'Druiven in de salade geven een zoete tegenhanger aan de hartige kip.',
+    ],
+    nutrition: { kcal: 390, protein: 34, carbs: 22, fat: 20, fiber: 6 },
+    imagePrompt:
+      'Warm kale and roasted chicken salad with grapes and walnuts in a bowl, yoghurt mustard dressing, cozy healthy lunch, warm natural light, food photography',
+  },
+
+  {
+    slug: 'gegrilde-kip-met-bloemkoolrijst-en-groenten',
+    title: 'Gegrilde kip met bloemkoolrijst en geroosterde groenten',
+    intro:
+      'Een koolhydraatarme, eiwitrijke maaltijd met gegrilde kip, bloemkoolrijst en geroosterde paprika en courgette. In 25 minuten op tafel.',
+    category: 'avondeten',
+    tags: ['gezond', 'koolhydraatarm', 'glutenvrij', 'snel'],
+    prepMin: 10,
+    cookMin: 18,
+    servings: 2,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '2', name: 'kipfilets (à 160 g)' },
+      { qty: '1', name: 'bloemkool, in fijne rijst' },
+      { qty: '1', name: 'courgette, in blokjes' },
+      { qty: '1', name: 'paprika, in reepjes' },
+      { qty: '1 el', name: 'olijfolie' },
+      { qty: '1 tl', name: 'paprikapoeder' },
+      { qty: '1/2 tl', name: 'knoflookpoeder' },
+      { qty: 'peper &', name: 'zout' },
+    ],
+    steps: [
+      'Verwarm de oven voor op 200 °C.',
+      'Meng de courgette en paprika met olijfolie, peper en zout en verdeel ze over een bakplaat. Rooster 15 minuten.',
+      'Kruid de kipfilets met paprikapoeder, knoflookpoeder, peper en zout en leg ze de laatste 10-12 minuten bij de groenten op de plaat.',
+      'Rasp de bloemkool tot fijne rijst en roerbak 5 minuten in een scheutje olie tot zacht.',
+      'Serveer de kip met de bloemkoolrijst en de geroosterde groenten.',
+    ],
+    variations: [
+      { title: 'Vullend', text: 'Vervang de bloemkoolrijst door zilvervliesrijst voor extra koolhydraten.' },
+      { title: 'Extra groente', text: 'Voeg broccoli of sugarsnaps toe aan de bakplaat.' },
+    ],
+    tips: [
+      'Bak de bloemkoolrijst niet te lang, anders wordt hij waterig.',
+      'Laat de kip 5 minuten rusten onder aluminiumfolie voor extra sappigheid.',
+    ],
+    nutrition: { kcal: 380, protein: 42, carbs: 18, fat: 16, fiber: 8 },
+    imagePrompt:
+      'Grilled chicken breast with cauliflower rice and roasted peppers and courgette on a white plate, healthy low carb dinner, bright natural light, food photography',
+  },
+
+  {
+    slug: 'roerbak-met-garnalen-en-groenten',
+    title: 'Pittige roerbak met garnalen en groenten',
+    intro:
+      'Een snelle, eiwitrijke roerbak met garnalen, paprika, sugarsnaps en sesam. Koolhydraatarm en glutenvrij. In 15 minuten klaar.',
+    category: 'avondeten',
+    tags: ['gezond', 'koolhydraatarm', 'glutenvrij', 'snel'],
+    prepMin: 10,
+    cookMin: 12,
+    servings: 2,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '250 g', name: 'garnalen, gepeld' },
+      { qty: '1', name: 'paprika, in reepjes' },
+      { qty: '150 g', name: 'sugarsnaps' },
+      { qty: '1/2', name: 'ui, in halve ringen' },
+      { qty: '2 tenen', name: 'knoflook, gesnipperd' },
+      { qty: '1 tl', name: 'gember, geraspt' },
+      { qty: '1 el', name: 'sojasaus (glutenvrij of tamari)' },
+      { qty: '1 tl', name: 'sesamolie' },
+      { qty: '1 el', name: 'olijfolie' },
+      { qty: '1 tl', name: 'sesamzaad (garnering)' },
+    ],
+    steps: [
+      'Verhit de olijfolie en roerbak de ui, knoflook en gember 1 minuut.',
+      'Voeg de paprika en sugarsnaps toe en roerbak 3-4 minuten op hoog vuur, beetgaar.',
+      'Voeg de garnalen toe en bak 3-4 minuten tot ze roze en gaar zijn.',
+      'Blus af met de sojasaus en sesamolie en meng goed door.',
+      'Bestrooi met sesamzaad en serveer direct.',
+    ],
+    variations: [
+      { title: 'Met rijst', text: 'Serveer met zilvervliesrijst of bloemkoolrijst voor een vullend gerecht.' },
+      { title: 'Vegan', text: 'Vervang de garnalen door blokjes tofu en bak ze knapperig.' },
+    ],
+    tips: [
+      'Bak garnalen kort; ze worden taai als ze te lang garen.',
+      'Bereid alle ingrediënten van tevoren, want roerbak gaat snel.',
+    ],
+    nutrition: { kcal: 265, protein: 30, carbs: 14, fat: 11, fiber: 5 },
+    imagePrompt:
+      'Stir fried prawns with peppers and sugar snap peas in a wok, glazed with soy and sesame, bright fresh colors, healthy quick dinner, food photography top-down',
+  },
+
+  {
+    slug: 'biefstukreepjes-met-paddenstoelen-en-sperziebonen',
+    title: 'Biefstukreepjes met paddenstoelen en sperziebonen',
+    intro:
+      'Een koolhydraatarme, eiwitrijke maaltijd met malse biefstukreepjes, gebakken champignons en sperziebonen. Smaakvol en in 20 minuten klaar.',
+    category: 'avondeten',
+    tags: ['gezond', 'koolhydraatarm', 'glutenvrij'],
+    prepMin: 10,
+    cookMin: 15,
+    servings: 2,
+    difficulty: 'gemiddeld',
+    ingredients: [
+      { qty: '300 g', name: 'runderbiefstuk, in reepjes' },
+      { qty: '200 g', name: 'kastanjechampignons, in plakjes' },
+      { qty: '250 g', name: 'sperziebonen, schoongemaakt' },
+      { qty: '1 el', name: 'olijfolie' },
+      { qty: '1/2', name: 'ui, in ringen' },
+      { qty: '2 tenen', name: 'knoflook' },
+      { qty: '1 tl', name: 'gedroogde tijm' },
+      { qty: '1 el', name: 'sojasaus (glutenvrij, optioneel)' },
+      { qty: 'peper &', name: 'zout' },
+    ],
+    steps: [
+      'Kook de sperziebonen 6-8 minuten beetgaar in licht gezouten water en giet af.',
+      'Verhit de olijfolie en bak de biefstukreepjes op hoog vuur 2-3 minuten goudbruin. Haal ze uit de pan.',
+      'Bak in dezelfde pan de ui, knoflook en champignons 5 minuten. Kruid met tijm, peper en zout.',
+      'Voeg de biefstukreepjes en eventueel de sojasaus toe en warm 1 minuut door.',
+      'Serveer de biefstukreepjes met de sperziebonen.',
+    ],
+    variations: [
+      { title: 'Romig', text: 'Voeg een scheutje kookroom toe aan de paddenstoelen voor een romige saus.' },
+      { title: 'Met aardappel', text: 'Serveer met gekookte krieltjes voor een vullende maaltijd.' },
+    ],
+    tips: [
+      'Laat de biefstuk op kamertemperatuur komen voordat je hem bakt voor een mooi roze midden.',
+      'Bak op hoog vuur; zo houd je het vlees mals.',
+    ],
+    nutrition: { kcal: 350, protein: 40, carbs: 12, fat: 17, fiber: 6 },
+    imagePrompt:
+      'Beef strips with sautéed mushrooms and green beans on a plate, juicy medium rare beef, rustic healthy dinner, warm natural light, food photography',
+  },
+
+  {
+    slug: 'kabeljauw-met-geroosterde-cherrytomaat-en-courgette',
+    title: 'Kabeljauw met geroosterde cherrytomaat en courgette',
+    intro:
+      'Een lichte, eiwitrijke maaltijd met zachte kabeljauw, zoete geroosterde tomaatjes en courgette uit de oven. Glutenvrij en in 25 minuten klaar.',
+    category: 'avondeten',
+    tags: ['gezond', 'glutenvrij'],
+    prepMin: 10,
+    cookMin: 20,
+    servings: 2,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '2', name: 'kabeljauwfilets (à 150 g)' },
+      { qty: '250 g', name: 'cherrytomaatjes, gehalveerd' },
+      { qty: '1', name: 'courgette, in halve maantjes' },
+      { qty: '1 el', name: 'olijfolie' },
+      { qty: '2 tenen', name: 'knoflook, in plakjes' },
+      { qty: '1 tl', name: 'gedroogde oregano' },
+      { qty: '1/2', name: 'citroen (sap)' },
+      { qty: 'handje', name: 'verse basilicum' },
+      { qty: 'peper &', name: 'zout' },
+    ],
+    steps: [
+      'Verwarm de oven voor op 200 °C.',
+      'Meng de tomaatjes, courgette en knoflook met de olijfolie en oregano en verdeel over een ovenschaal. Rooster 10 minuten.',
+      'Leg de kabeljauwfilets erop, bestrooi met peper en zout en besprenkel met citroensap.',
+      'Zet de schaal nog 10 minuten in de oven, tot de vis uit elkaar valt.',
+      'Garneer met verse basilicum en serveer direct.',
+    ],
+    variations: [
+      { title: 'Extra groente', text: 'Voeg paprika of broccoli toe aan de ovenschotel.' },
+      { title: 'Met zoete aardappel', text: 'Rooster zoete aardappelblokjes mee voor een vullend gerecht.' },
+    ],
+    tips: [
+      'Kabeljauw is klaar als het vlees makkelijk uit elkaar valt met een vork.',
+      'Besprenkel de vis met citroen om de smaak te versterken.',
+    ],
+    nutrition: { kcal: 285, protein: 34, carbs: 12, fat: 12, fiber: 4 },
+    imagePrompt:
+      'Baked cod fish fillet with roasted cherry tomatoes and courgette in an oven dish, garnished with fresh basil, light healthy dinner, warm natural light, food photography',
+  },
+
+  {
+    slug: 'lichte-kippensoep-met-groenten',
+    title: 'Lichte kippensoep met veel groenten',
+    intro:
+      'Een heldere, eiwitrijke kippensoep boordevol groenten en zonder gluten. Ijzersterk voor een lichte, gezonde maaltijd of als opkikker bij een verkoudheid.',
+    category: 'soep',
+    tags: ['gezond', 'glutenvrij'],
+    prepMin: 15,
+    cookMin: 30,
+    servings: 4,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '300 g', name: 'kipfilet, in blokjes' },
+      { qty: '1,5 liter', name: 'kippenbouillon (zonder gluten)' },
+      { qty: '2', name: 'wortels, in halve plakjes' },
+      { qty: '1 stengel', name: 'bleekselderij, in boogjes' },
+      { qty: '1', name: 'prei, in halve ringen' },
+      { qty: '1/2', name: 'ui, gesnipperd' },
+      { qty: '2 tenen', name: 'knoflook' },
+      { qty: '1', name: 'laurierblaadje' },
+      { qty: '1 tl', name: 'gedroogde tijm' },
+      { qty: 'peper &', name: 'zout' },
+    ],
+    steps: [
+      'Kook de kipfilet 15 minuten in de bouillon met het laurierblaadje. Vis de kip eruit, laat iets afkoelen en trek in blokjes.',
+      'Fruit de ui en knoflook in een scheutje olie en voeg daarna wortel, prei en bleekselderij toe. Roerbak 3 minuten.',
+      'Giet de bouillon terug en laat 15 minuten zachtjes pruttelen.',
+      'Voeg de kip en tijm toe en warm nog 5 minuten door. Breng op smaak met peper en zout.',
+    ],
+    variations: [
+      { title: 'Extra vulling', text: 'Voeg glutenvrije noedels of extra groenten toe voor een stevigere maaltijdsoep.' },
+      { title: 'Met ei', text: 'Serveer met een gehalveerd gekookt ei erin.' },
+    ],
+    tips: [
+      'Verwijder het laurierblaadje voor het serveren.',
+      'Deze soep blijft 3 dagen goed in de koelkast; vries de rest per portie in.',
+    ],
+    nutrition: { kcal: 160, protein: 24, carbs: 12, fat: 4, fiber: 3 },
+    imagePrompt:
+      'Clear chicken soup with fresh vegetables like carrot, leek and celery in a white bowl, steam rising, light and healthy, warm cozy light, food photography',
+  },
+
+  {
+    slug: 'romige-tomaten-linzensoep',
+    title: 'Romige tomaten-linzensoep',
+    intro:
+      'Een vullende, vegetarische soep van tomaten en rode linzen, romig gemaakt zonder room. Boordevol eiwitten en vezels. Glutenvrij en makkelijk in te vriezen.',
+    category: 'soep',
+    tags: ['gezond', 'vegetarisch', 'glutenvrij'],
+    prepMin: 10,
+    cookMin: 25,
+    servings: 4,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '200 g', name: 'rode linzen, gespoeld' },
+      { qty: '1 blik (400 g)', name: 'tomatenblokjes' },
+      { qty: '750 ml', name: 'groentebouillon' },
+      { qty: '1', name: 'ui, gesnipperd' },
+      { qty: '2 tenen', name: 'knoflook' },
+      { qty: '1', name: 'wortel, in blokjes' },
+      { qty: '1 tl', name: 'komijn' },
+      { qty: '1/2 tl', name: 'paprikapoeder' },
+      { qty: '1 el', name: 'olijfolie' },
+      { qty: 'peper &', name: 'zout' },
+    ],
+    steps: [
+      'Fruit de ui, knoflook en wortel in de olijfolie 3 minuten. Voeg komijn en paprikapoeder toe en bak 1 minuut mee.',
+      'Giet de tomatenblokjes en bouillon erbij en voeg de linzen toe.',
+      'Breng aan de kook en laat 20 minuten zachtjes koken tot de linzen zacht zijn.',
+      'Pureer de soep met een staafmixer tot romig en breng op smaak met peper en zout.',
+    ],
+    variations: [
+      { title: 'Met kokosmelk', text: 'Roer er een scheutje kokosmelk doorheen voor een romige variant.' },
+      { title: 'Extra groente', text: 'Voeg courgetteblokjes mee met de linzen voor meer volume.' },
+    ],
+    tips: [
+      'Spoel de linzen eerst goed af in een zeef.',
+      'Deze soep is heerlijk om in te vriezen in porties voor een snelle lunch.',
+    ],
+    nutrition: { kcal: 290, protein: 18, carbs: 42, fat: 9, fiber: 14 },
+    imagePrompt:
+      'Creamy tomato and red lentil soup in a rustic bowl, smooth deep red texture, garnished with fresh herbs, warm comforting natural light, overhead food photography',
+  },
+
+  {
+    slug: 'kip-caprese-salade',
+    title: 'Kip-caprese salade met basilicumdressing',
+    intro:
+      'Een lichte, eiwitrijke salade met gebakken kip, romige burrata, tomaten en een frisse basilicumdressing. Glutenvrij en in 15 minuten klaar.',
+    category: 'salade',
+    tags: ['gezond', 'glutenvrij'],
+    prepMin: 15,
+    cookMin: 8,
+    servings: 2,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '200 g', name: 'kipfilet, in plakken' },
+      { qty: '2', name: 'tomaten, in plakken' },
+      { qty: '100 g', name: 'burrata of mozzarella' },
+      { qty: 'handje', name: 'verse basilicum' },
+      { qty: '2 el', name: 'olijfolie' },
+      { qty: '1 el', name: 'balsamico-azijn' },
+      { qty: '1 tl', name: 'Dijonmosterd' },
+      { qty: 'peper &', name: 'zout' },
+    ],
+    steps: [
+      'Bak de kip in 1 eetlepel olijfolie goudbruin en gaar. Snijd in plakjes.',
+      'Leg de tomaten op twee borden en verdeel de kip erover.',
+      'Scheur de burrata erboven en verdeel het.',
+      'Klop de overige olijfolie, balsamico, mosterd, peper en zout tot een dressing en schenk erover.',
+      'Garneer met verse basilicum en serveer direct.',
+    ],
+    variations: [
+      { title: 'Extra vulling', text: 'Serveer met een glutenvrije ciabatta of quinoa erbij.' },
+      { title: 'Vegetarisch', text: 'Vervang de kip door geroosterde aubergine of tofu.' },
+    ],
+    tips: [
+      'Scheur de burrata net voor serveren open voor een romige bite.',
+      'Laat de tomaten op kamertemperatuur komen voor meer smaak.',
+    ],
+    nutrition: { kcal: 390, protein: 34, carbs: 8, fat: 25, fiber: 2 },
+    imagePrompt:
+      'Chicken caprese salad with sliced tomatoes, creamy burrata, basil and balsamic dressing on a plate, fresh Italian style healthy lunch, bright natural light, food photography',
+  },
+
+  {
+    slug: 'gegrilde-groente-met-tonijnsalade',
+    title: 'Geroosterde groente met tonijnsalade',
+    intro:
+      'Warme geroosterde groenten met een frisse tonijndressing. Eiwitrijk en snel klaar als lichte avondmaaltijd of stevige lunch.',
+    category: 'salade',
+    tags: ['gezond', 'glutenvrij', 'snel'],
+    prepMin: 10,
+    cookMin: 20,
+    servings: 2,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '1', name: 'courgette, in halve maantjes' },
+      { qty: '1', name: 'paprika, in reepjes' },
+      { qty: '1/2', name: 'aubergine, in blokjes' },
+      { qty: '1', name: 'rode ui, in parten' },
+      { qty: '1 el', name: 'olijfolie' },
+      { qty: '1 blik (160 g)', name: 'tonijn op water, uitgelekt' },
+      { qty: '2 el', name: 'magere Griekse yoghurt' },
+      { qty: '1 tl', name: 'citroensap' },
+      { qty: 'handje', name: 'verse peterselie, fijngehakt' },
+      { qty: 'peper &', name: 'zout' },
+    ],
+    steps: [
+      'Verwarm de oven voor op 200 °C.',
+      'Meng de groenten met de olijfolie, peper en zout en verdeel over een bakplaat. Rooster 20 minuten.',
+      'Meng ondertussen de tonijn met de yoghurt, het citroensap en de peterselie tot een dressing.',
+      'Verdeel de geroosterde groenten over twee borden en lepel de tonijndressing erover.',
+    ],
+    variations: [
+      { title: 'Met ei', text: 'Garneer met een gehalveerd gekookt ei voor extra eiwitten.' },
+      { title: 'Vegan', text: 'Vervang de tonijn door geroosterde kikkererwten en gebruik plantaardige yoghurt.' },
+    ],
+    tips: [
+      'Snijd de groenten in gelijke stukken voor gelijkmatig garen.',
+      'Laat de groenten iets afkoelen als je van een lauwe salade houdt.',
+    ],
+    nutrition: { kcal: 300, protein: 26, carbs: 20, fat: 13, fiber: 8 },
+    imagePrompt:
+      'Roasted vegetables with courgette, pepper, aubergine and red onion topped with tuna yogurt dressing on a plate, warm hearty healthy meal, natural light, overhead food photography',
+  },
+
+  {
+    slug: 'bananenfrozen-yoghurt-met-cacao',
+    title: 'Bananen \u2018nicecream\u2019 met cacao en pindakaas',
+    intro:
+      'Een ijskoud, gezond dessert van bevroren banaan met cacao en pindakaas, zonder toegevoegde suiker. Vegan, glutenvrij en in 2 minuten klaar.',
+    category: 'dessert',
+    tags: ['gezond', 'vegan', 'glutenvrij'],
+    prepMin: 10,
+    cookMin: 0,
+    servings: 2,
+    difficulty: 'gemakkelijk',
+    ingredients: [
+      { qty: '3', name: 'rijpe bananen, in plakken en ingevroren' },
+      { qty: '2 el', name: 'cacaopoeder' },
+      { qty: '1 el', name: 'pindakaas (100% noten)' },
+      { qty: '2 el', name: '(plantaardige) melk (optioneel)' },
+      { qty: '1 snuf', name: 'kaneel' },
+    ],
+    steps: [
+      'Vries de bananenplakken minstens 4 uur in.',
+      'Blend de bevroren banaan met de cacao, pindakaas en eventueel melk tot een romig geheel. Schraap tussendoor de rand van de blender af.',
+      'Schep het \u2018nicecream\u2019 in kommen en bestrooi met kaneel.',
+      'Serveer direct, of zet nog 15 minuten in de vriezer voor een steviger ijs.',
+    ],
+    variations: [
+      { title: 'Extra eiwit', text: 'Voeg een schep chocolade-eiwitpoeder toe voor een eiwitrijk dessert.' },
+      { title: 'Met aardbei', text: 'Voeg een handje verse aardbeien toe aan de mixer.' },
+    ],
+    tips: [
+      'Hoe rijper de banaan, hoe zoeter het ijs smaakt.',
+      'Gebruik een krachtige blender zodat het ijs glad en romig wordt.',
+    ],
+    nutrition: { kcal: 210, protein: 5, carbs: 42, fat: 6, fiber: 8 },
+    imagePrompt:
+      'Healthy banana nicecream with cocoa and peanut butter in a bowl, smooth frozen dessert topped with a sprinkle of cinnamon, fresh vegan treat, bright food styling, top-down',
+  },
 ];
 
 export const recipeBySlug = (slug: string): RecipeMeta | undefined =>
